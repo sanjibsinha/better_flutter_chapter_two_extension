@@ -1,8 +1,11 @@
+import 'package:better_flutter_chapter_two_extension/test/test_category_main_page.dart';
 import 'package:flutter/material.dart';
 import 'views/add_name_list.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    TestCategoryMainPage(),
+  );
 }
 
 class MyApp extends StatelessWidget {

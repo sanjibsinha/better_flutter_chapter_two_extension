@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:better_flutter_chapter_two_extension/test/dummy.dart';
 import 'package:flutter/material.dart';
 
@@ -114,10 +112,8 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context)!.settings.arguments as Map;
-    if (arguments != null) {
-      title = arguments['title'];
-      color = arguments['color'];
-    }
+    title = arguments['title'];
+    color = arguments['color'];
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Page'),
