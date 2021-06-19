@@ -69,30 +69,73 @@ class CategoryItems extends StatelessWidget {
     required this.color,
   }) : super(key: key);
 
+  void selectCategory(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      '/test',
+      arguments: {
+        'id': id,
+        'title': title,
+        'color': color,
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: color,
-        border: Border.all(
-          width: 10,
-          color: Colors.black45,
+    return InkWell(
+      onTap: () {
+        selectCategory(context);
+      },
+      child: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: color,
+          border: Border.all(
+            width: 10,
+            color: Colors.black45,
+          ),
         ),
-      ),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.headline4,
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.headline4,
+        ),
       ),
     );
   }
 }
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  DetailPage({Key? key}) : super(key: key);
+
+  var title;
+  var color;
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final Map arguments = ModalRoute.of(context)!.settings.arguments as Map;
+    if (arguments != null) {
+      title = arguments['title'];
+      color = arguments['color'];
+    }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detail Page'),
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: color,
+          border: Border.all(
+            width: 10,
+            color: Colors.black45,
+          ),
+        ),
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.headline4,
+        ),
+      ),
+    );
   }
 }
