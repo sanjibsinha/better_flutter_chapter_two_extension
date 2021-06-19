@@ -87,16 +87,28 @@ class CategoryItems extends StatelessWidget {
       },
       child: Container(
         alignment: Alignment.center,
+        padding: const EdgeInsets.all(
+          10.0,
+        ),
+        margin: const EdgeInsets.all(
+          10.0,
+        ),
         decoration: BoxDecoration(
-          color: color,
-          border: Border.all(
-            width: 10,
-            color: Colors.black45,
+          gradient: LinearGradient(
+            colors: [
+              color.withOpacity(0.1),
+              color,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline4,
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
@@ -116,10 +128,14 @@ class DetailPage extends StatelessWidget {
     color = arguments['color'];
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detail Page'),
+        title: Text(title),
+        backgroundColor: color,
       ),
       body: Container(
         alignment: Alignment.center,
+        height: 400.0,
+        width: 400.0,
+        margin: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           color: color,
           border: Border.all(
@@ -128,7 +144,7 @@ class DetailPage extends StatelessWidget {
           ),
         ),
         child: Text(
-          title,
+          '$title Books',
           style: Theme.of(context).textTheme.headline4,
         ),
       ),

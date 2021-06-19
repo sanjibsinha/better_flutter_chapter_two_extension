@@ -5,7 +5,7 @@ const DUMMY = const [
   Categories(
     id: 'c1',
     title: 'PHP',
-    color: Colors.amber,
+    color: Colors.red,
   ),
   Categories(
     id: 'c2',
@@ -19,7 +19,7 @@ const DUMMY = const [
   ),
   Categories(
     id: 'c4',
-    title: 'PHP',
+    title: 'Laravel',
     color: Colors.green,
   ),
   Categories(
