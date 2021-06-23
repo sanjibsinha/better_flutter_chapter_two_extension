@@ -12,7 +12,7 @@ class TestCategoryMainPage extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => MyHomePage(),
-        '/test': (context) => DetailPage(),
+        '/category': (context) => DetailPage(),
       },
     );
   }
@@ -70,7 +70,7 @@ class CategoryItems extends StatelessWidget {
   void selectCategory(BuildContext context) {
     Navigator.pushNamed(
       context,
-      '/test',
+      '/category',
       arguments: {
         'id': id,
         'title': title,
