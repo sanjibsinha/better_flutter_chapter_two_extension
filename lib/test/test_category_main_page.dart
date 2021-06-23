@@ -1,3 +1,4 @@
+import 'package:better_flutter_chapter_two_extension/test/book_list.dart';
 import 'package:better_flutter_chapter_two_extension/test/dummy.dart';
 import 'package:flutter/material.dart';
 
@@ -131,23 +132,40 @@ class DetailPage extends StatelessWidget {
         title: Text(title),
         backgroundColor: color,
       ),
-      body: Container(
-        alignment: Alignment.center,
-        height: 400.0,
-        width: 400.0,
-        margin: const EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
-          color: color,
-          border: Border.all(
-            width: 10,
-            color: Colors.black45,
-          ),
+      body: GridView(
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200.0,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
         ),
-        child: Text(
-          '$title Books',
-          style: Theme.of(context).textTheme.headline4,
-        ),
+        children: bookList.map((e) {
+          return BookPage();
+        }).toList(),
       ),
+    );
+  }
+}
+
+class BookPage extends StatelessWidget {
+  /* final String id;
+  final String title;
+  final String detail;
+  final Color color; */
+  const BookPage({
+    Key? key,
+    /* required this.id,
+    required this.title,
+    required this.detail,
+    required this.color, */
+    //required this.bookList,
+  }) : super(key: key);
+
+  /* final List<Map<String, Object>> bookList; */
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [],
     );
   }
 }
